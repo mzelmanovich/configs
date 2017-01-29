@@ -57,3 +57,8 @@ autocmd BufWritePre *.js :Autoformat
 filetype on
 set history=100
 let g:airline#extensions#tabline#enabled = 1
+
+set hlsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)

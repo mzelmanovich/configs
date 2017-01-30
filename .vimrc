@@ -65,3 +65,6 @@ map g/ <Plug>(incsearch-stay)
 map z/ <Plug>(incsearch-easymotion-/)
 map z? <Plug>(incsearch-easymotion-?)
 map zg/ <Plug>(incsearch-easymotion-stay)
+
+let g:airline#extensions#syntastic#enabled = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1

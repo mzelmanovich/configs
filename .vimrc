@@ -55,6 +55,7 @@ autocmd VimEnter * NERDTree
 autocmd VimEnter * exe "normal \<C-w>\<C-l>"
 autocmd BufWritePre *.js :Autoformat
 filetype on
+filetype plugin on
 set history=100
 let g:airline#extensions#tabline#enabled = 1
 

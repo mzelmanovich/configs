@@ -6,7 +6,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
@@ -69,3 +68,6 @@ map zg/ <Plug>(incsearch-easymotion-stay)
 
 let g:airline#extensions#syntastic#enabled = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+set foldmethod=syntax
+set nofoldenable

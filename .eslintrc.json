@@ -3,7 +3,8 @@
     "rules": {
         "semi": [1, "always"],
         "eol-last": "off",
-        "class-methods-use-this": [0]
+        "class-methods-use-this": [0],
+        "no-unused-expressions": ["warn"]
     },
     "parserOptions": {
         "ecmaVersion": 6,

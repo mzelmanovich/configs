@@ -1,0 +1,16 @@
+EditorConfig.EditorConfig
+MattiasPernhult.vscode-todo
+azemoh.theme-onedark
+christian-kohler.npm-intellisense
+dbaeumer.vscode-eslint
+donjayamanne.githistory
+glen-84.sass-lint
+joelday.docthis
+lonefy.vscode-JS-CSS-HTML-formatter
+mdickin.markdown-shortcuts
+mrmlnc.vscode-pugbeautify
+ms-mssql.mssql
+robinbentley.sass-indented
+rubbersheep.gi
+vscodevim.vim
+waderyan.babelrc

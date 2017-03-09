@@ -3,6 +3,7 @@
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
     "editor.quickSuggestionsDelay": 10,
+    "terminal.integrated.fontFamily": "Source Code Pro For Powerline",
     //fullstack
     "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "all",

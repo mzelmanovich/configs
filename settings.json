@@ -15,5 +15,9 @@
     "window.reopenFolders": "all",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-    "emmet.syntaxProfiles": { "javascript": "jsx" }
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+    "react.beautify.onSave": true,
+    "window.zoomLevel": -1
 }

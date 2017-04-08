@@ -19,5 +19,6 @@
         "javascript": "jsx"
     },
     "react.beautify.onSave": true,
+    "react.beautify.formatter": "esformatter",
     "window.zoomLevel": -1
 }

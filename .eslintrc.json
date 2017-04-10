@@ -4,7 +4,8 @@
         "semi": [1, "always"],
         "eol-last": "off",
         "class-methods-use-this": [0],
-        "no-unused-expressions": ["warn"]
+        "no-unused-expressions": ["warn"],
+        "indent": ["warn", 2]
     },
     "parserOptions": {
         "ecmaVersion": 6,

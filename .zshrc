@@ -83,9 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#add alias for mvim on mac
 alias vim='mvim -v'
-
-#auto hide host name for theme
 DEFAULT_USER="$(whoami)"
+
+POWERLEVEL9K_DIR_PATH_SEPARATOR=" $(print_icon "LEFT_SUBSEGMENT_SEPARATOR") "

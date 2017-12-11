@@ -1,73 +1,89 @@
+et smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set pastetoggle=<F2>
 set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 set number
 call vundle#begin()
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Raimondi/delimitMate'
 Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'digitaltoad/vim-pug'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'haya14busa/vim-easyoperator-line'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ap/vim-buftabline'
+Plugin 'valloric/youcompleteme'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/vim-easyoperator-line'
 Plugin 'haya14busa/incsearch-easymotion.vim'
 call vundle#end()
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set tabstop=4
-set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
 
 syntax enable
 syntax on
-set background=dark
-colorscheme solarized
-autocmd VimEnter * NERDTree
-autocmd VimEnter * exe "normal \<C-w>\<C-l>"
-autocmd BufWritePre *.js :Autoformat
+colorscheme xoria256
+ autocmd VimEnter * exe "normal \<C-w>\<C-l>"
 filetype on
 filetype plugin on
 set history=100
-let g:airline#extensions#tabline#enabled = 1
 
-set hlsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+set nofoldenable
+
+au BufNewFile,BufRead,BufReadPost *.jsc set syntax=javascript
+au BufNewFile,BufRead,BufReadPost *.jsc set ft=javascript
+au BufNewFile,BufRead,BufReadPost *.as set syntax=javascript
+au BufNewFile,BufRead,BufReadPost *.as set ft=javascript
+au BufNewFile,BufRead,BufReadPost *.jsi set syntax=javascript
+au BufNewFile,BufRead,BufReadPost *.jsi set ft=javascript
+
+set hlsearch!
+
+" Map tab key to buffer changes
+nmap <tab> :bn<cr>
+nmap <s-tab> :bp<cr>
+
+hi Search term=bold,reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
+
+"let g:indent_guides_enable_on_vim_startup = 1
+let g:ycm_disable_for_files_larger_than_kb = 0
+set foldmethod=manual
+
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+
+if &term =~# '^screen'
+ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+ endif
+
+if &term =~ '256color'
+ set t_ut=
+endif
+
+
+set backspace=indent,eol,start
+set hidden " Allow background buffers without saving
 map z/ <Plug>(incsearch-easymotion-/)
 map z? <Plug>(incsearch-easymotion-?)
-map zg/ <Plug>(incsearch-easymotion-stay)
 
-let g:airline#extensions#syntastic#enabled = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+command! -nargs=+ JSgrep silent execute 'grep --include=\*.jsc --exclude-dir="jstags" -rn <args> ./' | copen 33 | cclose | bd | redraw! | copen 33
+set autoread
 
-set foldmethod=syntax
-set nofoldenable
+autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
+
+"view tabs
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+set shell=/bin/bash\ -i
